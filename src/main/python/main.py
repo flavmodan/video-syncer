@@ -96,12 +96,13 @@ def client_listen():
 class Window(QMainWindow):
 
     def start_server(self):
+        #starts the server side
         global HOST
         global PORT
         global clients
         global serveroutput
         global required_clients
-        global s
+        global s   
         HOST = self.ui.host_input.text()
         PORT = int(self.ui.port_input.text())
         required_clients = int(self.ui.max_clients.text())
