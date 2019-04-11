@@ -109,7 +109,7 @@ class Window(QMainWindow):
         s.bind((HOST, PORT))
         s.settimeout(10000000)
         for i in range(required_clients):
-            s.listen(10000000)
+            s.listen(10000000) #dis some shieeeet
             clients.append(s.accept())
             serveroutput+="got client {0} \n".format(i)
         print(clients)
