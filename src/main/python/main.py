@@ -106,7 +106,13 @@ class Window(QMainWindow):
         PORT = int(self.ui.port_input.text())
         required_clients = int(self.ui.max_clients.text())
         clients = []
-        s.bind((HOST, PORT))
+        print("starting server on {0} at {1}".format(HOST,PORT))
+        serveroutput+="starting server on {0} at {1} \n".format(HOST,PORT)
+        try:
+            s.bind((HOST, PORT))
+        except OSError:
+            print("port already used reseting")
+            serveroutput+="port already used reseting \n"
         s.settimeout(10000000)
         for i in range(required_clients):
             s.listen(10000000) #dis some shieeeet
