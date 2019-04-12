@@ -29,8 +29,9 @@ def put_pause_server(key):
     global clients
     try:
         if(key.char=='q'):
+            print(clients)
             for conn,addr in clients:
-                conn.sendall(bytes('pause','utf-8'))
+                print(conn.sendall(bytes('pause','utf-8')))
             print("click")
             mouse.press(Button.left)
             mouse.release(Button.left)
@@ -84,6 +85,7 @@ def client_listen():
         try:
             data=s.recv(1024)
             put_pause=str(data, "utf-8")=="pause"
+            print(str(data, "utf-8"))
         except TimeoutException:
             print(end='')
         if put_pause:
