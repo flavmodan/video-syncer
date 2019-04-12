@@ -145,8 +145,10 @@ class Window(QMainWindow):
         s.connect((HOST, PORT))
         listener=Listener(on_press=put_pause_client)
         listener.start()
+        print("started listener")
         server=Process(target=client_listen)
         server.start()
+        print("started client")
         listeners.append(listener)
         processes.append(server)
 
